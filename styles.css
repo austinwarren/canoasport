@@ -1,0 +1,303 @@
+:root{
+  --bg: #0b1324;
+  --text: #0f172a;
+  --muted: #475569;
+  --brand: #0ea5e9;    /* sky */
+  --brand2: #06b6d4;   /* cyan */
+  --card: #ffffff;
+  --ring: rgba(14,165,233,.35);
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: #f8fafc;
+  line-height: 1.6;
+}
+
+/* Layout helpers */
+.container{
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+.section{
+  padding: 72px 0;
+}
+.section--alt{
+  background: #f1f5f9;
+}
+.section__title{
+  font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2rem);
+  margin: 0 0 24px;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(10px);
+  background: #89bad1; /* Deep red background matching your logo */
+  border-bottom: 2px solid #ffffff; /* Turquoise accent */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px min(4vw, 28px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #ffffff; /* White text matches the header style */
+  letter-spacing: 0.5px;
+}
+
+.brand-logo {
+  height: 52px; /* slightly bigger for visibility */
+  width: auto;
+  display: block;
+}
+
+.nav a {
+  color: #ffffff; /* White text for contrast */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex: 1; /* fills the space between logo and right edge */
+  max-width: 400px; /* optional limit so links don’t stretch too far apart */
+  margin-left: auto; /* pushes nav to the right */
+}
+
+.nav a.btn {
+  background: #0ea5e9; /* Turquoise button */
+  color: #fff;
+}
+
+/* Hero */
+.hero{
+  min-height: 68vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: white;
+  background: url("assets/happyZaden.jpg") center/cover no-repeat;
+}
+.hero__content{
+  width: min(900px, 92%);
+  padding: 64px 0 48px;
+}
+.hero h1{
+  font-size: clamp(2rem, 1.2rem + 3.2vw, 3.5rem);
+  line-height: 1.05;
+  margin: 0 0 14px;
+}
+.hero p{
+  font-size: clamp(1rem, .9rem + .4vw, 1.2rem);
+  opacity: .95;
+  margin: 0 auto 24px;
+}
+.hero__actions{
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 80px;
+}
+
+/* Buttons */
+.btn{
+  --pad: 12px 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: var(--pad);
+  background: var(--text);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(2,6,23,.18);
+  transition: transform .08s ease, box-shadow .2s ease, filter .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); filter: brightness(1.03); }
+.btn--ghost{
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid rgba(255,255,255,.82);
+}
+.btn--sm{ --pad: 8px 12px; }
+
+/* Cards */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+.card{
+  grid-column: span 12;
+  background: var(--card);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: 180px auto;
+  transition: box-shadow .2s ease, transform .08s ease;
+}
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(2,6,23,.08);
+}
+.card__media{
+  background: url("assets/kayak.jpg") center/cover no-repeat;
+}
+.card__media--2{
+  background: url("assets/meZadenAmelia.jpg") center/cover no-repeat;
+}
+.card__media--3{
+  background: url("assets/paddleboard.jpg") center/cover no-repeat;
+}
+
+.card__media--4{
+  background: url("assets/canoe.jpg") center/cover no-repeat;
+}
+
+.card__body{
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* fill available height */
+
+}
+.card h3{
+  margin: 2px 0 6px;
+  font-size: 1.05rem;
+}
+
+.card__meta {
+  margin-top: auto; /* pushes to bottom */
+  display: flex;
+  justify-content: left;
+  text-align: center;
+}
+
+.price{ font-weight: 800; }
+.link{
+  text-decoration: none;
+  color: var(--brand);
+  font-weight: 700;
+}
+
+/* About */
+.about{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 24px;
+  align-items: center;
+}
+.checks{
+  margin: 0;
+  padding-left: 18px;
+}
+.checks li{ margin: 8px 0; }
+.about-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px; /* optional rounded corners */
+}
+
+/* Form */
+.form{
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 18px;
+}
+.form__row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+label{ font-weight: 600; display: grid; gap: 6px; }
+input, textarea{
+  font: inherit;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  outline: none;
+}
+input:focus, textarea:focus{
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+/* Footer */
+.site-footer{
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  padding: 22px 0;
+  font-size: .95rem;
+}
+.footer__inner{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.footer__nav{
+  display: flex;
+  gap: 14px;
+}
+.footer__nav a{ color: var(--muted); text-decoration: none; }
+.muted{ color: var(--muted); }
+
+/* Responsive */
+@media (max-width: 900px){
+  .about{ grid-template-columns: 1fr; }
+}
+@media (max-width: 760px){
+  .nav{ display: none; }
+  .nav.open{ 
+    position: absolute;
+    right: 12px; top: 60px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px;
+    display: grid;
+    gap: 6px;
+  }
+  .nav-toggle{ display: inline-block; }
+  .grid .card{ grid-column: span 12; }
+  .form__row{ grid-template-columns: 1fr; }
+}
+@media (min-width: 720px){
+  .grid .card{ grid-column: span 4; }
+}
+
+.brand-logo {
+  height: 48px; /* Adjust as needed */
+  width: auto;
+  display: block;
+}
