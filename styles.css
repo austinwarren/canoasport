@@ -99,7 +99,7 @@ body{
   place-items: center;
   text-align: center;
   color: white;
-  background: url("assets/happyZaden.jpg") center/cover no-repeat;
+  background: url("assets/zadenAndSomeone.jpg") center/cover no-repeat;
 }
 .hero__content{
   width: min(900px, 92%);
